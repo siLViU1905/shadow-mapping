@@ -1,0 +1,10 @@
+^C:\USERS\PITIC\ONEDRIVE\DOCUMENTS\DESKTOP\SHADOWMAPPING\BUILD\CMAKEFILES\946CA1D2021633C1864602A151671DA9\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping -BC:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping/build/shadowMapping.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

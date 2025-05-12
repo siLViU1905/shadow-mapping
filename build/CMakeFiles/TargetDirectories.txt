@@ -1,0 +1,3 @@
+C:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping/build/CMakeFiles/shadowMapping.dir
+C:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/pitic/OneDrive/Documents/Desktop/shadowmapping/build/CMakeFiles/ZERO_CHECK.dir
