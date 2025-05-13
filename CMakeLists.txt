@@ -10,9 +10,19 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/cmake/bin)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/cmake/bin/Debug)
 set(CMAKE_SOLUTION_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build/cmake)
 
+
+set(BULLET_LIBRARIES 
+    "${CMAKE_SOURCE_DIR}/lib/BulletCollision.lib"
+    "${CMAKE_SOURCE_DIR}/lib/BulletDynamics.lib"
+    "${CMAKE_SOURCE_DIR}/lib/LinearMath.lib"
+)
+
+include_directories(${BULLET_INCLUDE_DIRS})
+
 include_directories(${CMAKE_SOURCE_DIR}/includes)
 
 find_package(OpenGL REQUIRED)
+
 
 link_directories(${CMAKE_SOURCE_DIR}/lib)
 
@@ -30,6 +40,7 @@ set(SOURCE_FILES
         includes/mine/auxiliary.cpp
         includes/mine/Mesh.cpp
         includes/mine/Model.cpp
+        
 )
 
 add_executable(shadowMapping ${SOURCE_FILES})
@@ -44,6 +55,12 @@ if(WIN32)
                 ${OPENGL_LIBRARIES}
                 glfw3
                 assimp-vc143-mtd
+        )
+        target_link_libraries(shadowMapping
+                ${BULLET_LIBRARIES}
+                BulletDynamics
+                BulletCollision
+                LinearMath
         )
 elseif(APPLE)
         find_library(COCOA_LIBRARY Cocoa)

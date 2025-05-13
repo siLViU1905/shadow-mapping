@@ -142,7 +142,7 @@ int main()
 
     scene.angles = glm::vec3(0.f, 83.72f, 0.f);
 
-    Model sphere("models/lowPolySphere/sphere.gltf", camera);
+    Model sphere("models/highPolySphere/sphere.gltf", camera);
 
     sphere.position = glm::vec3(0.f, 0.635f, 0.f);
 
@@ -272,16 +272,16 @@ int main()
         rectShader.setFloat("material.metallic", sphereMetallic);
         rectShader.setFloat("material.ao", sphereAO);
 
-        glActiveTexture(GL_TEXTURE0);
+        glActiveTexture(GL_TEXTURE0 + 10);
         glBindTexture(GL_TEXTURE_2D, depthMap);
 
         sphereShader.setMat4("lightSpaceMatrix", lightSpaceMatrix);
 
-        sphereShader.setInt("shadowMap", 0);
+        sphereShader.setInt("shadowMap", 10);
 
         sponzaShader.setMat4("lightSpaceMatrix", lightSpaceMatrix);
 
-        sponzaShader.setInt("shadowMap", 0);
+        sponzaShader.setInt("shadowMap", 10);
 
         scene.render(sponzaShader);
 
